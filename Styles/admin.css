@@ -1,0 +1,156 @@
+﻿
+body {
+        background:black;
+        text-align:center;
+        color:White;
+}
+
+#login {
+        margin:auto;
+        border:thin solid silver;
+        border-radius: 7px;
+        position:relative;
+        top:200px;
+        width:600px;
+}
+
+.login_header {
+        font-size:1.2em;
+        font-weight:bold;
+        padding-top:10px;
+        padding-bottom:10px;      
+}
+
+
+#logout {
+        text-align:left;
+        background:black;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        border:thin solid silver;
+        padding:15px;
+        margin:0px;
+}
+
+
+td {
+        padding:5px;
+        text-align:center;
+}
+
+#neuspjelo_logiranje {
+        font-size:1.2em;
+        font-weight:bold;
+        color:Red;
+}
+
+
+#dodajClana {
+        text-align:left;
+        padding:10px;
+        margin:10px;
+        border:thin solid silver;
+}
+
+.naslov_poglavlja
+{
+        margin-top:50px;
+        margin-bottom:20px;
+}
+
+
+.grid_container {
+        padding:10px;
+}
+
+.editiranjeClanakaDialog
+{
+        text-align:center;
+        border:2px solid silver;
+        background: black;
+        -moz-box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+        -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+        display:none;
+}
+
+.editiranjeClanakaDialog table {
+        margin:auto;
+        opacity:1.0;
+        filter:alpha(opacity=100);
+
+}
+
+
+#dodavanjeClanka {
+        text-align:left;
+}
+
+#editText {
+        height:80%;
+}
+
+#popisAdministratora, #dodajAdministratora {
+        text-align:left;
+        border:thin solid silver;
+        padding:10px;
+}
+
+.porukaODodavanju {
+        color:Red;
+        font-weight:bold;
+}
+
+#btnDodajAdministratora {
+    margin-top:10px;
+    padding:5px;
+}
+
+.center
+{
+    margin:auto;
+}
+
+.abtn
+{
+    position:relative;
+    border:thin solid Silver;
+    color: white;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background:black;
+    height: 22px;
+    margin: 3px 0px 3px 0px;
+    top: 3px;
+    left: 2px;
+}
+
+.abtn:hover {
+   top:1px;
+   left:1px;
+}
+
+
+.abtn:active{
+    top:2px;
+    left:2px;
+}
+
+.slike 
+{    
+    position:relative;
+    width:70%;
+    left:15%;
+}
+
+.slike div
+{
+    text-align:left;
+}
+
+grid
+{
+    text-decoration:none;
+}

@@ -1,0 +1,192 @@
+﻿
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+body
+{
+    text-align: center;
+    background:black;
+    height:546px; 
+    line-height: 1;
+}
+*
+{
+       
+        margin: 0px;
+        padding: 0px;
+        
+}
+#main
+{
+    width:800px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    -moz-box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+    padding-bottom: 5px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:1px solid silver;
+    background:black;
+    height:100%;
+    font: 12px Comic Sans MS;
+    min-height:400px;
+    overflow:hidden;   
+}
+#logo
+{       
+        height: 111px;
+        margin: auto;
+        background-image: url('../Pics/Master/logoa.png');
+        -moz-border-top-radius: 15px;
+        border-top-left-radius: 15px;
+        border-top-right-radius:15px;       
+}
+#left
+{
+    float: left;
+    text-align: center;
+    margin: 5px;
+    width: 200px;
+    border-radius: 15px;
+    border:1px solid Silver;
+    height:100%;
+}
+#right
+{
+    margin-left: 220px;
+    margin-right: 5px;
+    margin-top: 5px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    -moz-box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.6);
+    text-align: left;
+    color:White;
+    border:1px solid silver;
+}
+#usefulLinks p{
+        margin:5px;
+}
+#usefulLinks p a:hover
+{
+    color: silver;
+}
+#usefulLinks p a
+{
+    color:white;
+    text-decoration:none;
+}
+strong{
+        font-weight:bold;
+}
+#clear
+{
+    clear:both;
+}
+#naslov
+{
+    color:silver;
+    padding-bottom:10px;
+    position:relative;
+    font:14px comic sans ms;
+    text-align:center;    
+}
+#content{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        font-weight:normal;
+}
+hr {
+        visibility:hidden;
+}
+.btn
+{
+    position:relative;
+    border:thin solid Silver;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background:black;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+}
+.btn:hover {
+   top:1px;
+   left:1px;
+}
+
+.btn:active{
+    top:2px;
+    left:2px;
+}
+.gumbi {
+        margin-top:20px;
+}
+
+#silverlight_container {
+        height:600px;
+        text-align:center;
+        padding-top:40px;
+}
+
+
+.meni_naslov
+{  
+    position: relative;
+    -moz-border-radius-top: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.accordionHeader
+{           
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+}
+.accordionContent
+{
+                          
+    padding: 4px;
+    padding-top: 7px;
+}
+.href
+{
+    color:White;
+    text-decoration :none;
+    text-align:left;
+    list-style:none;
+    
+}
+.saccordionHeader
+{
+    cursor: pointer;
+    border-bottom: 1px solid silver;
+    font-size:14px;
+}
+
+#video
+{
+    
+    text-align :left;
+}
+    

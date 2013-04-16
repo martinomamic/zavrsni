@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head" runat="server">
+    <title>AC/DC fan page</title>
+    <link href="Styles/menu.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/site.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/help.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+    <script src="Scripts/menu.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+<form id="form" runat="server">
+<div id="main">
+<div id="logo"></div>
+<div id="menu">
+<ul class="menu">
+<li><a href="default.aspx" class="parent"><span>Naslovna</span></a></li>
+<li><a href="biografija.aspx" class="parent"><span>Biografija</span></a></li>
+<li><a href="diskografija.aspx" class="parent"><span>Diskografija</span></a></li>
+<li class="last"><a href="video.aspx"><span>Video</span></a></li>
+</ul>
+</div>
+<div id="left">
+<asp:ContentPlaceHolder id="Help" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+<div id="right">
+<asp:ContentPlaceHolder id="MainContent" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+</div>
+<div id="clear"></div>
+<a href="http://apycom.com/"></a>
+</form>
+</body>
+</html>

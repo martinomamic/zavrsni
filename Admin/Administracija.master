@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Administracija.master.cs"
+    Inherits="Admin_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Administracija</title>
+    <script src="../Scripts/Admin.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.9.1.custom.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+    <script src="../Scripts/menu.js" type="text/javascript"></script>
+    <script src="../Scripts/site.js" type="text/javascript"></script>
+    <link href="../Styles/admin.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/menu.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="login" runat="server">
+        <p class="login_header">
+            AC/DC fan page - administracija
+        </p>
+        <p id="neuspjelo_logiranje" runat="server">
+        </p>
+        <p>
+            <asp:Label ID="Label1" runat="server" Text="Korisničko ime : "></asp:Label>
+            <asp:TextBox ID="txtKorisnickoIme" runat="server"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" Text="Lozinka : "></asp:Label>
+            <asp:TextBox ID="txtLozinka" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:Button ID="btnLogirajSe" runat="server" Text="Logiraj se" OnClick="btnLogirajSe_Click"
+                CausesValidation="false" class="abtn" />
+        </p>
+    </div>
+    <div id="menu">
+        <ul class="menu">
+            <li><a href="Administracija.aspx" class="parent">Administracija</a></li>
+            <li><a href="AdministracijaSlika.aspx" class="parent">Administracija slika</a></li>
+            <li><a href="AdministracijaClanaka.aspx" class="parent">Administracija članaka</a></li>
+            <li><a href="AdministracijaDiskografije.aspx">Administracija diskografije</a></li>
+        </ul>
+        <span style="float: right; right: 15px;">
+            <asp:Button ID="btnodlogirajSe" runat="server" OnClick="odlogirajSe_Click" CssClass="abtn"
+                Text="Odlogiraj se" /></span>
+    </div>
+    <div id="sadrzaj" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <a href="http://apycom.com/"></a>
+    </form>
+</body>
+</html>

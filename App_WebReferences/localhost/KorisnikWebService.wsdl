@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LinkNaVelikuSliku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="linkNaThumbnail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LinkNaVelikuSlikuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LinkNaVelikuSlikuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpisUzSliku">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="linkNaThumbnail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpisUzSlikuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpisUzSlikuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LinkNaVelikuSlikuSoapIn">
+    <wsdl:part name="parameters" element="tns:LinkNaVelikuSliku" />
+  </wsdl:message>
+  <wsdl:message name="LinkNaVelikuSlikuSoapOut">
+    <wsdl:part name="parameters" element="tns:LinkNaVelikuSlikuResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpisUzSlikuSoapIn">
+    <wsdl:part name="parameters" element="tns:OpisUzSliku" />
+  </wsdl:message>
+  <wsdl:message name="OpisUzSlikuSoapOut">
+    <wsdl:part name="parameters" element="tns:OpisUzSlikuResponse" />
+  </wsdl:message>
+  <wsdl:portType name="KorisnikWebServiceSoap">
+    <wsdl:operation name="LinkNaVelikuSliku">
+      <wsdl:input message="tns:LinkNaVelikuSlikuSoapIn" />
+      <wsdl:output message="tns:LinkNaVelikuSlikuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpisUzSliku">
+      <wsdl:input message="tns:OpisUzSlikuSoapIn" />
+      <wsdl:output message="tns:OpisUzSlikuSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KorisnikWebServiceSoap" type="tns:KorisnikWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LinkNaVelikuSliku">
+      <soap:operation soapAction="http://tempuri.org/LinkNaVelikuSliku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpisUzSliku">
+      <soap:operation soapAction="http://tempuri.org/OpisUzSliku" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="KorisnikWebServiceSoap12" type="tns:KorisnikWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LinkNaVelikuSliku">
+      <soap12:operation soapAction="http://tempuri.org/LinkNaVelikuSliku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpisUzSliku">
+      <soap12:operation soapAction="http://tempuri.org/OpisUzSliku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KorisnikWebService">
+    <wsdl:port name="KorisnikWebServiceSoap" binding="tns:KorisnikWebServiceSoap">
+      <soap:address location="http://localhost:15963/Thunderstruck/KorisnikWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="KorisnikWebServiceSoap12" binding="tns:KorisnikWebServiceSoap12">
+      <soap12:address location="http://localhost:15963/Thunderstruck/KorisnikWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

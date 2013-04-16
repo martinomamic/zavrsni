@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="BioData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bioid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BioDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BioDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClanakEditText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clanakid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClanakEditTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClanakEditTextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BioDataUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sadrzaj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BioDataUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BioDataUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClanakUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sadrzaj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClanakUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClanakUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BioDataSoapIn">
+    <wsdl:part name="parameters" element="tns:BioData" />
+  </wsdl:message>
+  <wsdl:message name="BioDataSoapOut">
+    <wsdl:part name="parameters" element="tns:BioDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClanakEditTextSoapIn">
+    <wsdl:part name="parameters" element="tns:ClanakEditText" />
+  </wsdl:message>
+  <wsdl:message name="ClanakEditTextSoapOut">
+    <wsdl:part name="parameters" element="tns:ClanakEditTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="BioDataUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:BioDataUpdate" />
+  </wsdl:message>
+  <wsdl:message name="BioDataUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:BioDataUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClanakUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ClanakUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ClanakUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ClanakUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AdminWebServiceSoap">
+    <wsdl:operation name="BioData">
+      <wsdl:input message="tns:BioDataSoapIn" />
+      <wsdl:output message="tns:BioDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClanakEditText">
+      <wsdl:input message="tns:ClanakEditTextSoapIn" />
+      <wsdl:output message="tns:ClanakEditTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BioDataUpdate">
+      <wsdl:input message="tns:BioDataUpdateSoapIn" />
+      <wsdl:output message="tns:BioDataUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClanakUpdate">
+      <wsdl:input message="tns:ClanakUpdateSoapIn" />
+      <wsdl:output message="tns:ClanakUpdateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdminWebServiceSoap" type="tns:AdminWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BioData">
+      <soap:operation soapAction="http://tempuri.org/BioData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClanakEditText">
+      <soap:operation soapAction="http://tempuri.org/ClanakEditText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BioDataUpdate">
+      <soap:operation soapAction="http://tempuri.org/BioDataUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClanakUpdate">
+      <soap:operation soapAction="http://tempuri.org/ClanakUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdminWebServiceSoap12" type="tns:AdminWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BioData">
+      <soap12:operation soapAction="http://tempuri.org/BioData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClanakEditText">
+      <soap12:operation soapAction="http://tempuri.org/ClanakEditText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BioDataUpdate">
+      <soap12:operation soapAction="http://tempuri.org/BioDataUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClanakUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ClanakUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminWebService">
+    <wsdl:port name="AdminWebServiceSoap" binding="tns:AdminWebServiceSoap">
+      <soap:address location="http://localhost:15963/Thunderstruck/Admin/AdminWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AdminWebServiceSoap12" binding="tns:AdminWebServiceSoap12">
+      <soap12:address location="http://localhost:15963/Thunderstruck/Admin/AdminWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

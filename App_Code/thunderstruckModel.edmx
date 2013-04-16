@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="thunderstruckModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="thunderstruckModelStoreContainer">
+          <EntitySet Name="Administrator" EntityType="thunderstruckModel.Store.Administrator" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Clanci" EntityType="thunderstruckModel.Store.Clanci" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Diskografije" EntityType="thunderstruckModel.Store.Diskografije" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Galerije" EntityType="thunderstruckModel.Store.Galerije" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Thumbnail" EntityType="thunderstruckModel.Store.Thumbnail" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Clanci_Galerije" Association="thunderstruckModel.Store.FK_Clanci_Galerije">
+            <End Role="Galerije" EntitySet="Galerije" />
+            <End Role="Clanci" EntitySet="Clanci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diskografije_Galerije" Association="thunderstruckModel.Store.FK_Diskografije_Galerije">
+            <End Role="Galerije" EntitySet="Galerije" />
+            <End Role="Diskografije" EntitySet="Diskografije" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Thumbnail_Galerije" Association="thunderstruckModel.Store.FK_Thumbnail_Galerije">
+            <End Role="Galerije" EntitySet="Galerije" />
+            <End Role="Thumbnail" EntitySet="Thumbnail" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Clanci">
+          <Key>
+            <PropertyRef Name="ClanakID" />
+          </Key>
+          <Property Name="ClanakID" Type="int" Nullable="false" />
+          <Property Name="TextClanka" Type="ntext" Nullable="false" />
+          <Property Name="NazivClanka" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="GalerijaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Diskografije">
+          <Key>
+            <PropertyRef Name="DiskografijaID" />
+          </Key>
+          <Property Name="DiskografijaID" Type="int" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Clanak" Type="ntext" Nullable="false" />
+          <Property Name="GalerijaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Galerije">
+          <Key>
+            <PropertyRef Name="GalerijaID" />
+          </Key>
+          <Property Name="GalerijaID" Type="int" Nullable="false" />
+          <Property Name="NazivGalerije" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Thumbnail">
+          <Key>
+            <PropertyRef Name="ThumbnailID" />
+          </Key>
+          <Property Name="ThumbnailID" Type="int" Nullable="false" />
+          <Property Name="NazivThumbnaila" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Link" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="LinkNaVelikuSliku" Type="nvarchar" MaxLength="150" />
+          <Property Name="Sirina" Type="int" />
+          <Property Name="Visina" Type="int" />
+          <Property Name="DodatniHtml" Type="ntext" />
+          <Property Name="GalerijaID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Clanci_Galerije">
+          <End Role="Galerije" Type="thunderstruckModel.Store.Galerije" Multiplicity="0..1" />
+          <End Role="Clanci" Type="thunderstruckModel.Store.Clanci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerije">
+              <PropertyRef Name="GalerijaID" />
+            </Principal>
+            <Dependent Role="Clanci">
+              <PropertyRef Name="GalerijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diskografije_Galerije">
+          <End Role="Galerije" Type="thunderstruckModel.Store.Galerije" Multiplicity="0..1" />
+          <End Role="Diskografije" Type="thunderstruckModel.Store.Diskografije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerije">
+              <PropertyRef Name="GalerijaID" />
+            </Principal>
+            <Dependent Role="Diskografije">
+              <PropertyRef Name="GalerijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Thumbnail_Galerije">
+          <End Role="Galerije" Type="thunderstruckModel.Store.Galerije" Multiplicity="1" />
+          <End Role="Thumbnail" Type="thunderstruckModel.Store.Thumbnail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerije">
+              <PropertyRef Name="GalerijaID" />
+            </Principal>
+            <Dependent Role="Thumbnail">
+              <PropertyRef Name="GalerijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="thunderstruckModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="thunderstruckEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrator" EntityType="thunderstruckModel.Administrator" />
+          <EntitySet Name="Clanci" EntityType="thunderstruckModel.Clanci" />
+          <EntitySet Name="Diskografije" EntityType="thunderstruckModel.Diskografije" />
+          <EntitySet Name="Galerije" EntityType="thunderstruckModel.Galerije" />
+          <EntitySet Name="Thumbnail" EntityType="thunderstruckModel.Thumbnail" />
+          <AssociationSet Name="FK_Clanci_Galerije" Association="thunderstruckModel.FK_Clanci_Galerije">
+            <End Role="Galerije" EntitySet="Galerije" />
+            <End Role="Clanci" EntitySet="Clanci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Thumbnail_Galerije" Association="thunderstruckModel.FK_Thumbnail_Galerije">
+            <End Role="Galerije" EntitySet="Galerije" />
+            <End Role="Thumbnail" EntitySet="Thumbnail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diskografije_Galerije" Association="thunderstruckModel.FK_Diskografije_Galerije">
+            <End Role="Galerije" EntitySet="Galerije" />
+            <End Role="Diskografije" EntitySet="Diskografije" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Clanci">
+          <Key>
+            <PropertyRef Name="ClanakID" />
+          </Key>
+          <Property Name="ClanakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TextClanka" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NazivClanka" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="GalerijaID" Type="Int32" />
+          <NavigationProperty Name="Galerije" Relationship="thunderstruckModel.FK_Clanci_Galerije" FromRole="Clanci" ToRole="Galerije" />
+        </EntityType>
+        <EntityType Name="Diskografije">
+          <Key>
+            <PropertyRef Name="DiskografijaID" />
+          </Key>
+          <Property Name="DiskografijaID" Type="Int32" Nullable="false" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Clanak" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="GalerijaID" />
+          <NavigationProperty Name="Galerije" Relationship="thunderstruckModel.FK_Diskografije_Galerije" FromRole="Diskografije" ToRole="Galerije" />
+        </EntityType>
+        <EntityType Name="Galerije">
+          <Key>
+            <PropertyRef Name="GalerijaID" />
+          </Key>
+          <Property Name="GalerijaID" Type="Int32" Nullable="false" />
+          <Property Name="NazivGalerije" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Clanci" Relationship="thunderstruckModel.FK_Clanci_Galerije" FromRole="Galerije" ToRole="Clanci" />
+          <NavigationProperty Name="Thumbnail" Relationship="thunderstruckModel.FK_Thumbnail_Galerije" FromRole="Galerije" ToRole="Thumbnail" />
+          <NavigationProperty Name="Diskografije" Relationship="thunderstruckModel.FK_Diskografije_Galerije" FromRole="Galerije" ToRole="Diskografije" />
+        </EntityType>
+        <EntityType Name="Thumbnail">
+          <Key>
+            <PropertyRef Name="ThumbnailID" />
+          </Key>
+          <Property Name="ThumbnailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivThumbnaila" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="LinkNaVelikuSliku" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Sirina" Type="Int32" />
+          <Property Name="Visina" Type="Int32" />
+          <Property Name="DodatniHtml" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="GalerijaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Galerije" Relationship="thunderstruckModel.FK_Thumbnail_Galerije" FromRole="Thumbnail" ToRole="Galerije" />
+        </EntityType>
+        <Association Name="FK_Clanci_Galerije">
+          <End Role="Galerije" Type="thunderstruckModel.Galerije" Multiplicity="0..1" />
+          <End Role="Clanci" Type="thunderstruckModel.Clanci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerije">
+              <PropertyRef Name="GalerijaID" />
+            </Principal>
+            <Dependent Role="Clanci">
+              <PropertyRef Name="GalerijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Thumbnail_Galerije">
+          <End Role="Galerije" Type="thunderstruckModel.Galerije" Multiplicity="1" />
+          <End Role="Thumbnail" Type="thunderstruckModel.Thumbnail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerije">
+              <PropertyRef Name="GalerijaID" />
+            </Principal>
+            <Dependent Role="Thumbnail">
+              <PropertyRef Name="GalerijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diskografije_Galerije">
+          <End Type="thunderstruckModel.Galerije" Role="Galerije" Multiplicity="0..1" />
+          <End Type="thunderstruckModel.Diskografije" Role="Diskografije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerije">
+              <PropertyRef Name="GalerijaID" />
+            </Principal>
+            <Dependent Role="Diskografije">
+              <PropertyRef Name="GalerijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="thunderstruckModelStoreContainer" CdmEntityContainer="thunderstruckEntities">
+          <EntitySetMapping Name="Administrator"><EntityTypeMapping TypeName="thunderstruckModel.Administrator"><MappingFragment StoreEntitySet="Administrator">
+            <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+            <ScalarProperty Name="Username" ColumnName="Username" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Clanci"><EntityTypeMapping TypeName="thunderstruckModel.Clanci"><MappingFragment StoreEntitySet="Clanci">
+            <ScalarProperty Name="ClanakID" ColumnName="ClanakID" />
+            <ScalarProperty Name="TextClanka" ColumnName="TextClanka" />
+            <ScalarProperty Name="NazivClanka" ColumnName="NazivClanka" />
+            <ScalarProperty Name="GalerijaID" ColumnName="GalerijaID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Diskografije"><EntityTypeMapping TypeName="thunderstruckModel.Diskografije"><MappingFragment StoreEntitySet="Diskografije">
+            <ScalarProperty Name="GalerijaID" ColumnName="GalerijaID" />
+                <ScalarProperty Name="DiskografijaID" ColumnName="DiskografijaID" />
+            <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+            <ScalarProperty Name="Clanak" ColumnName="Clanak" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Galerije"><EntityTypeMapping TypeName="thunderstruckModel.Galerije"><MappingFragment StoreEntitySet="Galerije">
+            <ScalarProperty Name="GalerijaID" ColumnName="GalerijaID" />
+            <ScalarProperty Name="NazivGalerije" ColumnName="NazivGalerije" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Thumbnail"><EntityTypeMapping TypeName="thunderstruckModel.Thumbnail"><MappingFragment StoreEntitySet="Thumbnail">
+            <ScalarProperty Name="ThumbnailID" ColumnName="ThumbnailID" />
+            <ScalarProperty Name="NazivThumbnaila" ColumnName="NazivThumbnaila" />
+            <ScalarProperty Name="Link" ColumnName="Link" />
+            <ScalarProperty Name="LinkNaVelikuSliku" ColumnName="LinkNaVelikuSliku" />
+            <ScalarProperty Name="Sirina" ColumnName="Sirina" />
+            <ScalarProperty Name="Visina" ColumnName="Visina" />
+            <ScalarProperty Name="DodatniHtml" ColumnName="DodatniHtml" />
+            <ScalarProperty Name="GalerijaID" ColumnName="GalerijaID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DatabaseModel">
+        <EntityTypeShape EntityType="thunderstruckModel.Administrator" Width="1.5" PointX="6.5" PointY="4.25" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="thunderstruckModel.Clanci" Width="1.5" PointX="4.25" PointY="4.25" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="thunderstruckModel.Diskografije" Width="1.5" PointX="6.5" PointY="1.875" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="thunderstruckModel.Galerije" Width="1.5" PointX="4.25" PointY="1.75" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="thunderstruckModel.Thumbnail" Width="1.5" PointX="2.125" PointY="2.375" Height="2.7494921874999996" IsExpanded="true" />
+        <AssociationConnector Association="thunderstruckModel.FK_Clanci_Galerije" ManuallyRouted="false">
+          <ConnectorPoint PointX="5" PointY="3.7302864583333331" />
+          <ConnectorPoint PointX="5" PointY="4.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="thunderstruckModel.FK_Thumbnail_Galerije" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.25" PointY="3.0526432291666667" />
+          <ConnectorPoint PointX="3.625" PointY="3.0526432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="thunderstruckModel.FK_Diskografije_Galerije" >
+          <ConnectorPoint PointX="5.75" PointY="2.8026432291666667" />
+          <ConnectorPoint PointX="6.5" PointY="2.8026432291666667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
